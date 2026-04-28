@@ -2,11 +2,11 @@
 
 ### Create a new SPFx project
 
-```bash
+
 npx create-spfx-tailwind-app-v1 MyProject
 
 ![npm version](https://img.shields.io/npm/v/create-spfx-tailwind-app-v1)
-![npm downloads](https://img.shields.io/npm/dw/create-spfx-tailwind-app-v1)
+![npm downloads](https://img.shields.io/npm/dt/create-spfx-tailwind-app-v1)
 ![license](https://img.shields.io/npm/l/create-spfx-tailwind-app-v1)
 ![SPFx](https://img.shields.io/badge/SPFx-1.22+-green)
 
