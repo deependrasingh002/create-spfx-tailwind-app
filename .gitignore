@@ -3,4 +3,4 @@ dist
 lib
 temp
 *.log
-.env
+.envgit branch -M main

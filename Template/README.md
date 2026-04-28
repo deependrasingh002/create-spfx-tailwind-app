@@ -1,77 +1,190 @@
-# __PROJECT_NAME_LOWER__
+# 🚀 create-spfx-tailwind-app
 
-## Summary
+![npm version](https://img.shields.io/npm/v/create-spfx-tailwind-app)
+![npm downloads](https://img.shields.io/npm/dw/create-spfx-tailwind-app)
+![license](https://img.shields.io/npm/l/create-spfx-tailwind-app)
+![SPFx](https://img.shields.io/badge/SPFx-1.22+-green)
 
-Short summary on functionality and used technologies.
+A modern CLI tool to scaffold **SharePoint Framework (SPFx)** projects
+with **Tailwind CSS pre-configured** --- no manual setup required.
 
-[picture of the solution in action, if possible]
+------------------------------------------------------------------------
 
-## Used SharePoint Framework Version
+## ✨ Features
 
-![version](https://img.shields.io/badge/version-1.22.2-green.svg)
+-   ⚡ One-command SPFx project creation\
+-   🎨 Tailwind CSS ready out of the box\
+-   🧠 Smart CLI (interactive prompts + flags)\
+-   📦 Optional dependency installation\
+-   🏗 Built for SPFx v1.22+ (Heft-based projects)\
+-   🔁 No manual renaming required
 
-## Applies to
+------------------------------------------------------------------------
 
-- [SharePoint Framework](https://aka.ms/spfx)
-- [Microsoft 365 tenant](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant)
+## 📦 Usage
 
-> Get your own free development tenant by subscribing to [Microsoft 365 developer program](http://aka.ms/o365devprogram)
+### ▶️ Create a project
 
-## Prerequisites
+``` bash
+npx create-spfx-tailwind-app MyProject
+```
 
-> Any special pre-requisites?
+------------------------------------------------------------------------
 
-## Solution
+### ▶️ Or install globally
 
-| Solution    | Author(s)                                               |
-| ----------- | ------------------------------------------------------- |
-| folder name | Author details (name, company, twitter alias with link) |
+``` bash
+npm install -g create-spfx-tailwind-app
+create-spfx-app MyProject
+```
 
-## Version history
+------------------------------------------------------------------------
 
-| Version | Date             | Comments        |
-| ------- | ---------------- | --------------- |
-| 1.1     | March 10, 2021   | Update comment  |
-| 1.0     | January 29, 2021 | Initial release |
+## ⚙️ CLI Options
 
-## Disclaimer
+``` bash
+create-spfx-app <project-name> [options]
+```
 
-**THIS CODE IS PROVIDED _AS IS_ WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+### Options
 
----
+-   `--no-install` → Skip dependency installation
 
-## Minimal Path to Awesome
+### Example
 
-- Clone this repository
-- Ensure that you are at the solution folder
-- in the command-line run:
-  - `npm install -g @rushstack/heft`
-  - `npm install`
-  - `heft start`
+``` bash
+create-spfx-app VendorPortal --no-install
+```
 
-> Include any additional steps as needed.
+------------------------------------------------------------------------
 
-Other build commands can be listed using `heft --help`.
+## 🛠 After Project Creation
 
-## Features
+### If you skipped install:
 
-Description of the extension that expands upon high-level summary above.
+``` bash
+cd MyProject
+npm install
+```
 
-This extension illustrates the following concepts:
+------------------------------------------------------------------------
 
-- topic 1
-- topic 2
-- topic 3
+## ▶️ Start Development
 
-> Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
+Run in **two terminals**:
 
-> Share your web part with others through Microsoft 365 Patterns and Practices program to get visibility and exposure. More details on the community, open-source projects and other activities from http://aka.ms/m365pnp.
+``` bash
+# Terminal 1
+npm run start
+```
 
-## References
+``` bash
+# Terminal 2 (Tailwind watcher)
+npm run build:tailwind
+```
 
-- [Getting started with SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant)
-- [Building for Microsoft teams](https://docs.microsoft.com/sharepoint/dev/spfx/build-for-teams-overview)
-- [Use Microsoft Graph in your solution](https://docs.microsoft.com/sharepoint/dev/spfx/web-parts/get-started/using-microsoft-graph-apis)
-- [Publish SharePoint Framework applications to the Marketplace](https://docs.microsoft.com/sharepoint/dev/spfx/publish-to-marketplace-overview)
-- [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
-- [Heft Documentation](https://heft.rushstack.io/)
+------------------------------------------------------------------------
+
+## 🧱 Tech Stack
+
+-   SharePoint Framework (SPFx) v1.22+
+-   React
+-   Tailwind CSS
+-   Heft build system
+-   Node.js
+
+------------------------------------------------------------------------
+
+## 📁 Project Structure
+
+    MyProject/
+    ├── src/
+    ├── config/
+    ├── package.json
+    ├── gulpfile.js
+    ├── tailwind.config.js
+
+------------------------------------------------------------------------
+
+## 🎯 Why this tool?
+
+The default SPFx generator:
+
+``` bash
+yo @microsoft/sharepoint
+```
+
+❌ Requires manual setup\
+❌ No Tailwind support\
+❌ Repetitive configuration
+
+------------------------------------------------------------------------
+
+This CLI solves that by:
+
+✔ Automating setup\
+✔ Adding Tailwind out of the box\
+✔ Improving developer experience
+
+------------------------------------------------------------------------
+
+## 📌 Prerequisites
+
+-   Node.js (v18 recommended)
+-   npm
+-   SPFx development environment
+
+------------------------------------------------------------------------
+
+## 🧪 Example
+
+``` bash
+npx create-spfx-tailwind-app VendorPortal
+```
+
+------------------------------------------------------------------------
+
+## 🧑‍💻 Author
+
+Deependra Singh
+
+------------------------------------------------------------------------
+
+## 📄 License
+
+MIT License
+
+------------------------------------------------------------------------
+
+## ⚠️ Disclaimer
+
+This project is not officially affiliated with Microsoft.\
+Use at your own risk.
+
+------------------------------------------------------------------------
+
+## ⭐ Contributing
+
+Contributions are welcome!\
+Feel free to open issues or submit pull requests.
+
+------------------------------------------------------------------------
+
+## 🔗 References
+
+-   https://learn.microsoft.com/sharepoint/dev/spfx/
+-   https://tailwindcss.com/
+-   https://heft.rushstack.io/
+
+------------------------------------------------------------------------
+
+## 💬 Support
+
+If you find this useful:
+
+⭐ Star the repo\
+🔁 Share with your team
+
+------------------------------------------------------------------------
+
+Happy coding 🚀
