@@ -1,5 +1,8 @@
 {
-  "name": "tailwind-spfx-template",
+  "name": "create-spfx-tailwind-app-v1",
+  "engines": {
+  "node": ">=22"
+},
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -11,9 +14,14 @@
     "tailwind",
     "cli"
   ],
-  "author": "",
-   "license": "MIT",
-  "description": "",
+  "author": "Deependra Singh",
+  "license": "MIT",
+  "description": "CLI to scaffold SPFx projects with Tailwind CSS preconfigured",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deependrasingh002/create-spfx-tailwind-app.git"
+  },
+  "homepage": "https://github.com/deependrasingh002/create-spfx-tailwind-app.git",
   "bin": {
     "create-spfx-app": "./index.js"
   },
