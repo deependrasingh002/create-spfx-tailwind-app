@@ -15,8 +15,9 @@
     "cli"
   ],
   "files": [
-    "*",
-    "!node_modules"
+    "index.js",
+    "README.md",
+    "Template/**"
   ],
   "author": "Deependra Singh",
   "license": "MIT",
