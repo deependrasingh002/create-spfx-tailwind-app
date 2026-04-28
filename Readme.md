@@ -1,4 +1,9 @@
-# 🚀 create-spfx-tailwind-app
+## 🚀 Usage
+
+### Create a new SPFx project
+
+```bash
+npx create-spfx-tailwind-app-v1 MyProject
 
 ![npm version](https://img.shields.io/npm/v/create-spfx-tailwind-app-v1)
 ![npm downloads](https://img.shields.io/npm/dw/create-spfx-tailwind-app-v1)
