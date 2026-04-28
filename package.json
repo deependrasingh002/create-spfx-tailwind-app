@@ -14,6 +14,10 @@
     "tailwind",
     "cli"
   ],
+  "files": [
+    "*",
+    "!node_modules"
+  ],
   "author": "Deependra Singh",
   "license": "MIT",
   "description": "CLI to scaffold SPFx projects with Tailwind CSS preconfigured",
