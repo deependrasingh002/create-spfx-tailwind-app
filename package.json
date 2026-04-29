@@ -12,7 +12,9 @@
     "spfx",
     "sharepoint",
     "tailwind",
-    "cli"
+    "spfx tailwind",
+    "create spfx app",
+    "spfx cli"
   ],
   "files": [
     "index.js",
