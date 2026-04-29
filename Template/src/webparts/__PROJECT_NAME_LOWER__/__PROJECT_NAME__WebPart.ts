@@ -124,7 +124,7 @@ export default class __PROJECT_NAME__WebPart extends BaseClientSideWebPart<I__PR
       // Stop after 10 seconds (optional cleanup)
       setTimeout(() => clearInterval(interval), 10000);
 
-      console.log("UI elements hidden");
+     
     });
   }
 
