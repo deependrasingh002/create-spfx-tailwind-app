@@ -7,11 +7,13 @@ const chalk = require("chalk");
 const ora = require("ora");
 const inquirer = require("inquirer");
 const figlet = require("figlet");
-const gradient = require("gradient-string");
+const gradient = require("gradient-string").default;
 
 // 🎨 Banner
+
+
 console.log(
-  gradient.pastel(figlet.textSync("SPFx CLI", { horizontalLayout: "full" })),
+  gradient.instagram(figlet.textSync("SPFx CLI", { horizontalLayout: "full" })),
 );
 
 async function run() {
