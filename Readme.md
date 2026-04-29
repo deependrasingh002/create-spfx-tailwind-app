@@ -58,7 +58,7 @@ create-spfx-app <project-name> [options]
 ### Example
 
 ``` bash
-create-spfx-app VendorPortal --no-install
+create-spfx-app MyProject --no-install
 ```
 
 ------------------------------------------------------------------------
@@ -145,7 +145,7 @@ This CLI solves that by:
 
 ## 📌 Prerequisites
 
--   Node.js (v18 recommended)
+-   Node.js (v22 recommended)
 -   npm
 -   SPFx development environment
 
@@ -154,7 +154,7 @@ This CLI solves that by:
 ## 🧪 Example
 
 ``` bash
-npx create-spfx-tailwind-app VendorPortal
+npx create-spfx-tailwind-app MyProject
 ```
 
 ------------------------------------------------------------------------
