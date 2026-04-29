@@ -102,12 +102,22 @@ npm run build:tailwind
 
 ## 📁 Project Structure
 
-    MyProject/
-    ├── src/
+        MyProject/
+    ├── .vscode/
     ├── config/
+    ├── src/
+    ├── teams/
+    ├── temp/
+    ├── .eslintrc.js
+    ├── .gitignore
+    ├── .yo-rc.json
     ├── package.json
-    ├── gulpfile.js
+    ├── package-lock.json
+    ├── postcss.config.js
+    ├── README.md
+    ├── setup.js
     ├── tailwind.config.js
+    ├── tsconfig.json
 
 ------------------------------------------------------------------------
 
