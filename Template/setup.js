@@ -63,10 +63,13 @@ walk("./");
 renameFiles("./");
 
 // 🔁 Rename webpart folder (adjust based on your original name)
-const oldFolder = "./src/webparts/templateSpfx";
-const newFolder = `./src/webparts/${projectNameLower}`;
+const webpartsDir = "./src/webparts";
 
-if (fs.existsSync(oldFolder)) {
-  fs.renameSync(oldFolder, newFolder);
-}
+fs.readdirSync(webpartsDir).forEach((folder) => {
+  if (folder.includes("PROJECT_NAME_LOWER")) {
+    const oldPath = path.join(webpartsDir, folder);
+    const newPath = path.join(webpartsDir, projectNameLower);
 
+    fs.renameSync(oldPath, newPath);
+  }
+});

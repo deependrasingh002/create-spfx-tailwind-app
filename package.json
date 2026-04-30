@@ -1,5 +1,5 @@
 {
-  "name": "create-spfx-tailwind-app-v1",
+  "name": "create-spfx-tailwind-app",
   "engines": {
     "node": ">=22"
   },
