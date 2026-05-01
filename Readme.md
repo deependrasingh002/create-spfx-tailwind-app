@@ -3,7 +3,7 @@
 ### Create a new SPFx project
 
 
-npx create-spfx-tailwind-app-v1 MyProject
+npx create-spfx-tailwind-app MyProject
 
 ![npm version](https://img.shields.io/npm/v/create-spfx-tailwind-app-v1)
 ![npm downloads](https://img.shields.io/npm/dt/create-spfx-tailwind-app-v1)
