@@ -15,8 +15,7 @@ if (!projectName) {
 const projectNameLower = projectName.toLowerCase();
 
 
-console.log("✅ Solution ID:", solutionId);
-console.log("✅ WebPart ID:", webpartId);
+
 
 // ✅ Only process safe text files
 const allowedExtensions = [".json", ".js", ".ts", ".tsx", ".scss", ".md"];
