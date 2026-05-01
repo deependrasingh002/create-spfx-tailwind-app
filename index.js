@@ -58,7 +58,7 @@ async function run() {
     // ⚙ Run setup script
     execSync(`node setup.js "${projectName}"`, {
       cwd: targetDir,
-      stdio: "ignore",
+      stdio: "inherit",
     });
 
     spinner.succeed(chalk.green("✔ Project setup complete"));

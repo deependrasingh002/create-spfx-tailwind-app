@@ -1,9 +1,9 @@
 const fs = require("fs");
 const path = require("path");
-const { v4: uuidv4 } = require("uuid");
+const { randomUUID } = require("crypto");
 
-const solutionId = uuidv4();
-const webpartId = uuidv4();
+const solutionId = randomUUID();
+const webpartId = randomUUID();
 
 const projectName = process.argv[2];
 
@@ -14,8 +14,18 @@ if (!projectName) {
 
 const projectNameLower = projectName.toLowerCase();
 
+
+console.log("✅ Solution ID:", solutionId);
+console.log("✅ WebPart ID:", webpartId);
+
+// ✅ Only process safe text files
+const allowedExtensions = [".json", ".js", ".ts", ".tsx", ".scss", ".md"];
+
 // 🔁 Replace content inside files
 function replaceInFile(filePath) {
+  const ext = path.extname(filePath);
+  if (!allowedExtensions.includes(ext)) return;
+
   let content = fs.readFileSync(filePath, "utf8");
 
   content = content
@@ -27,12 +37,16 @@ function replaceInFile(filePath) {
   fs.writeFileSync(filePath, content);
 }
 
-// 🔁 Walk and process files
+// 🔁 Walk and process files safely
 function walk(dir) {
-  fs.readdirSync(dir).forEach(file => {
+  if (!fs.existsSync(dir)) return;
+
+  fs.readdirSync(dir).forEach((file) => {
     const fullPath = path.join(dir, file);
 
-    if (fs.statSync(fullPath).isDirectory()) {
+    const stat = fs.statSync(fullPath);
+
+    if (stat.isDirectory()) {
       walk(fullPath);
     } else {
       replaceInFile(fullPath);
@@ -40,23 +54,24 @@ function walk(dir) {
   });
 }
 
-// 🔁 Rename files (IMPORTANT FIX)
+// 🔁 Rename files safely
 function renameFiles(dir) {
-  fs.readdirSync(dir).forEach(file => {
+  if (!fs.existsSync(dir)) return;
+
+  fs.readdirSync(dir).forEach((file) => {
     const fullPath = path.join(dir, file);
 
-    if (fs.statSync(fullPath).isDirectory()) {
+    const stat = fs.statSync(fullPath);
+
+    if (stat.isDirectory()) {
       renameFiles(fullPath);
     } else {
-      let newName = file
+      const newName = file
         .replace(/__PROJECT_NAME__/g, projectName)
         .replace(/__PROJECT_NAME_LOWER__/g, projectNameLower);
 
       if (newName !== file) {
-        fs.renameSync(
-          fullPath,
-          path.join(dir, newName)
-        );
+        fs.renameSync(fullPath, path.join(dir, newName));
       }
     }
   });
@@ -65,27 +80,30 @@ function renameFiles(dir) {
 // 🔁 Run replacements
 walk("./");
 
+// 🔁 Force update package.json name
 const pkgPath = path.join("./package.json");
 
 if (fs.existsSync(pkgPath)) {
   const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
-
-  pkg.name = projectNameLower; // force update
-
+  pkg.name = projectNameLower;
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 }
 
 // 🔁 Rename files AFTER replacing content
 renameFiles("./");
 
-// 🔁 Rename webpart folder (adjust based on your original name)
+// 🔁 Rename webpart folder safely
 const webpartsDir = "./src/webparts";
 
-fs.readdirSync(webpartsDir).forEach((folder) => {
-  if (folder.includes("PROJECT_NAME_LOWER")) {
-    const oldPath = path.join(webpartsDir, folder);
-    const newPath = path.join(webpartsDir, projectNameLower);
+if (fs.existsSync(webpartsDir)) {
+  fs.readdirSync(webpartsDir).forEach((folder) => {
+    if (folder.includes("__PROJECT_NAME_LOWER__")) {
+      const oldPath = path.join(webpartsDir, folder);
+      const newPath = path.join(webpartsDir, projectNameLower);
 
-    fs.renameSync(oldPath, newPath);
-  }
-});
+      fs.renameSync(oldPath, newPath);
+    }
+  });
+}
+
+console.log("🎉 Setup complete!");
