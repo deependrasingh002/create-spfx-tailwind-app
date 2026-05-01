@@ -8,6 +8,8 @@ const ora = require("ora");
 const inquirer = require("inquirer");
 const figlet = require("figlet");
 const gradient = require("gradient-string").default;
+const setupPath = path.join(targetDir, "setup.js");
+
 
 // 🎨 Banner
 
@@ -127,6 +129,14 @@ async function run() {
     }
 
     console.log("\n" + chalk.gray("Happy coding 🚀\n"));
+    try {
+      if (fs.existsSync(setupPath)) {
+        fs.unlinkSync(setupPath);
+        // console.log(chalk.gray("🧹 setup.js removed"));
+      }
+    } catch (err) {
+      console.log(chalk.yellow("⚠️ Could not remove setup.js"));
+    }
   } catch (err) {
     console.log(chalk.red("\n❌ Something went wrong\n"));
     console.error(err);
