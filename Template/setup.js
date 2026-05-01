@@ -1,5 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+const { v4: uuidv4 } = require("uuid");
+
+const solutionId = uuidv4();
+const webpartId = uuidv4();
 
 const projectName = process.argv[2];
 
@@ -16,7 +20,9 @@ function replaceInFile(filePath) {
 
   content = content
     .replace(/__PROJECT_NAME__/g, projectName)
-    .replace(/__PROJECT_NAME_LOWER__/g, projectNameLower);
+    .replace(/__PROJECT_NAME_LOWER__/g, projectNameLower)
+    .replace(/__WEBPART_ID__/g, webpartId)
+    .replace(/__SOLUTION_ID__/g, solutionId);
 
   fs.writeFileSync(filePath, content);
 }
@@ -58,6 +64,16 @@ function renameFiles(dir) {
 
 // 🔁 Run replacements
 walk("./");
+
+const pkgPath = path.join("./package.json");
+
+if (fs.existsSync(pkgPath)) {
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
+
+  pkg.name = projectNameLower; // force update
+
+  fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+}
 
 // 🔁 Rename files AFTER replacing content
 renameFiles("./");

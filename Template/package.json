@@ -26,7 +26,8 @@
     "jquery": "^4.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "tslib": "2.3.1"
+    "tslib": "2.3.1",
+    "uuid": "^14.0.0"
   },
   "devDependencies": {
     "@microsoft/eslint-config-spfx": "1.22.2",
