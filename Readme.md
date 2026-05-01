@@ -5,9 +5,9 @@
 
 npx create-spfx-tailwind-app MyProject
 
-![npm version](https://img.shields.io/npm/v/create-spfx-tailwind-app-v1)
-![npm downloads](https://img.shields.io/npm/dt/create-spfx-tailwind-app-v1)
-![license](https://img.shields.io/npm/l/create-spfx-tailwind-app-v1)
+![npm version](https://img.shields.io/npm/v/create-spfx-tailwind-app)
+![npm downloads](https://img.shields.io/npm/dt/create-spfx-tailwind-app)
+![license](https://img.shields.io/npm/l/create-spfx-tailwind-app)
 ![SPFx](https://img.shields.io/badge/SPFx-1.22+-green)
 
 A modern CLI tool to scaffold **SharePoint Framework (SPFx)** projects
@@ -40,7 +40,7 @@ npx create-spfx-tailwind-app MyProject
 
 ``` bash
 npm install -g create-spfx-tailwind-app
-create-spfx-app MyProject
+create-spfx-tailwind-app MyProject
 ```
 
 ------------------------------------------------------------------------

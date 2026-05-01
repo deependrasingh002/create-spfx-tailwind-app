@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/deependrasingh002/create-spfx-tailwind-app.git",
   "bin": {
-    "create-spfx-app": "./index.js"
+    "create-spfx-tailwind-app": "./index.js"
   },
   "dependencies": {
     "chalk": "^4.1.2",
