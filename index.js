@@ -8,11 +8,6 @@ const ora = require("ora");
 const inquirer = require("inquirer");
 const figlet = require("figlet");
 const gradient = require("gradient-string").default;
-const setupPath = path.join(targetDir, "setup.js");
-
-
-// 🎨 Banner
-
 
 console.log(
   gradient.instagram(figlet.textSync("SPFx CLI", { horizontalLayout: "full" })),
@@ -21,11 +16,8 @@ console.log(
 async function run() {
   try {
     const args = process.argv.slice(2);
-
-    // 🔹 detect flags
     const noInstallFlag = args.includes("--no-install");
 
-    // 🔹 get project name
     let projectName = args.find((arg) => !arg.startsWith("--"));
 
     if (!projectName) {
@@ -47,6 +39,7 @@ async function run() {
 
     const templateDir = path.join(__dirname, "Template");
     const targetDir = path.join(process.cwd(), projectName);
+    const setupPath = path.join(targetDir, "setup.js");
 
     console.log(chalk.cyan("\n🚀 Creating your SPFx project...\n"));
 
@@ -55,33 +48,39 @@ async function run() {
     // 📁 Copy template
     fs.cpSync(templateDir, targetDir, { recursive: true });
 
-    spinner.text = "Customizing project...";
+    spinner.text = "Running setup...";
 
-    // ⚙ Run setup script
-    execSync(`node setup.js "${projectName}"`, {
-      cwd: targetDir,
-      stdio: "inherit",
-    });
+    // ⚙ Run setup.js if exists
+    if (fs.existsSync(setupPath)) {
+      execSync(`node setup.js "${projectName}"`, {
+        cwd: targetDir,
+        stdio: "inherit",
+      });
+    }
+
+    spinner.text = "Cleaning up...";
+
+    // 🧹 Remove setup.js after execution
+    try {
+      if (fs.existsSync(setupPath)) {
+        fs.unlinkSync(setupPath);
+        // optional log
+        // console.log(chalk.gray("🧹 setup.js removed"));
+      }
+    } catch (err) {
+      console.log(chalk.yellow("⚠️ Could not remove setup.js"));
+    }
 
     spinner.succeed(chalk.green("✔ Project setup complete"));
 
-     try {
-       if (fs.existsSync(setupPath)) {
-         fs.unlinkSync(setupPath);
-         // console.log(chalk.gray("🧹 setup.js removed"));
-       }
-     } catch (err) {
-       console.log(chalk.yellow("⚠️ Could not remove setup.js"));
-     }
-
-    // 🔍 detect Tailwind support
+    // 🔍 detect Tailwind
     let hasTailwind = false;
     try {
       const pkg = require(path.join(targetDir, "package.json"));
       hasTailwind = !!pkg.scripts?.["build:tailwind"];
     } catch {}
 
-    // ❓ Ask install (unless flag used)
+    // ❓ Ask install
     let install = true;
 
     if (noInstallFlag) {
@@ -114,7 +113,7 @@ async function run() {
       }
     }
 
-    // 🎉 Success message
+    // 🎉 Done
     console.log("\n" + chalk.bold.green("🎉 Project created successfully!\n"));
 
     console.log(chalk.yellow("👉 Next steps:"));
@@ -138,7 +137,6 @@ async function run() {
     }
 
     console.log("\n" + chalk.gray("Happy coding 🚀\n"));
-
   } catch (err) {
     console.log(chalk.red("\n❌ Something went wrong\n"));
     console.error(err);
