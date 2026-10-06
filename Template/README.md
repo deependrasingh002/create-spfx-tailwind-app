@@ -3,7 +3,7 @@
 ![npm version](https://img.shields.io/npm/v/create-spfx-tailwind-app)
 ![npm downloads](https://img.shields.io/npm/dw/create-spfx-tailwind-app)
 ![license](https://img.shields.io/npm/l/create-spfx-tailwind-app)
-![SPFx](https://img.shields.io/badge/SPFx-1.22+-green)
+![SPFx](https://img.shields.io/badge/SPFx-1.24+-green)
 
 A modern CLI tool to scaffold **SharePoint Framework (SPFx)** projects
 with **Tailwind CSS pre-configured** --- no manual setup required.
@@ -19,7 +19,7 @@ with **Tailwind CSS pre-configured** --- no manual setup required.
 -   🎨 Tailwind CSS ready out of the box\
 -   🧠 Smart CLI (interactive prompts + flags)\
 -   📦 Optional dependency installation\
--   🏗 Built for SPFx v1.22+ (Heft-based projects)\
+-   🏗 Built for SPFx v1.24+ (Heft-based projects)\
 -   🔁 No manual renaming required
 
 ------------------------------------------------------------------------
@@ -90,7 +90,7 @@ npm run build:tailwind
 
 ## 🧱 Tech Stack
 
--   SharePoint Framework (SPFx) v1.22+
+-   SharePoint Framework (SPFx) v1.24+
 -   React
 -   Tailwind CSS
 -   Heft build system
