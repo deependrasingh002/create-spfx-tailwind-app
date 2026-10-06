@@ -8,6 +8,9 @@
 A modern CLI tool to scaffold **SharePoint Framework (SPFx)** projects
 with **Tailwind CSS pre-configured** --- no manual setup required.
 
+- 🚀 **Updated to SPFx 1.24 & React 18**
+- 🎨 **Tailwind CSS optimized for SharePoint Modern Pages**
+
 ------------------------------------------------------------------------
 
 ## ✨ Features
