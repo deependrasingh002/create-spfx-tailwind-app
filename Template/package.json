@@ -1,9 +1,9 @@
 {
   "name": "template-spfx",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "engines": {
-    "node": ">=22.14.0 < 23.0.0"
+    "node": ">=22.14.0"
   },
   "scripts": {
     "build": "heft test --clean --production && heft package-solution --production",
@@ -17,36 +17,36 @@
   },
   "dependencies": {
     "@fluentui/react": "^8.106.4",
-    "@microsoft/sp-component-base": "1.22.2",
-    "@microsoft/sp-core-library": "1.22.2",
-    "@microsoft/sp-lodash-subset": "1.22.2",
-    "@microsoft/sp-office-ui-fabric-core": "1.22.2",
-    "@microsoft/sp-property-pane": "1.22.2",
-    "@microsoft/sp-webpart-base": "1.22.2",
+    "@microsoft/sp-component-base": "1.24.0-beta.5",
+    "@microsoft/sp-core-library": "1.24.0-beta.5",
+    "@microsoft/sp-lodash-subset": "1.24.0-beta.5",
+    "@microsoft/sp-office-ui-fabric-core": "1.24.0-beta.5",
+    "@microsoft/sp-property-pane": "1.24.0-beta.5",
+    "@microsoft/sp-webpart-base": "1.24.0-beta.5",
     "jquery": "^4.0.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "tslib": "2.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tslib": "^2.6.2",
     "uuid": "^14.0.0"
   },
   "devDependencies": {
-    "@microsoft/eslint-config-spfx": "1.22.2",
-    "@microsoft/eslint-plugin-spfx": "1.22.2",
-    "@microsoft/sp-module-interfaces": "1.22.2",
-    "@microsoft/spfx-heft-plugins": "1.22.2",
-    "@microsoft/spfx-web-build-rig": "1.22.2",
+    "@microsoft/eslint-config-spfx": "1.24.0-beta.5",
+    "@microsoft/eslint-plugin-spfx": "1.24.0-beta.5",
+    "@microsoft/sp-module-interfaces": "1.24.0-beta.5",
+    "@microsoft/spfx-heft-plugins": "1.24.0-beta.5",
+    "@microsoft/spfx-web-build-rig": "1.24.0-beta.5",
     "@rushstack/eslint-config": "4.5.2",
     "@rushstack/heft": "1.1.2",
     "@types/heft-jest": "1.0.2",
     "@types/jquery": "^4.0.0",
-    "@types/react": "17.0.45",
-    "@types/react-dom": "17.0.17",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
     "@types/webpack-env": "~1.15.2",
     "@typescript-eslint/parser": "8.46.2",
     "autoprefixer": "^10.4.27",
     "css-loader": "~7.1.2",
     "eslint": "8.57.1",
-    "eslint-plugin-react-hooks": "4.3.0",
+    "eslint-plugin-react-hooks": "5.0.0",
     "postcss": "^8.5.8",
     "spfx-fast-serve": "^4.0.2",
     "tailwindcss": "^3.4.19",
@@ -56,6 +56,7 @@
     "@rushstack/heft": "1.1.2"
   },
   "resolutions": {
-    "@types/react": "17.0.45"
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5"
   }
 }
